@@ -1,2 +1,0 @@
-# amazing.com
-ffsefs
