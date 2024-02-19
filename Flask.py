@@ -12,6 +12,8 @@ app.config['MYSQL_DB'] = 'geeklogin'
  
 mysql = MySQL(app)
 app = Flask(__name__)
+with open("Dashbord.html","r") as s:
+    code = s.read()
 with open("more.Html","r") as t:
     j = t.read()
 with open("Home.Html","r") as f:
@@ -19,6 +21,10 @@ with open("Home.Html","r") as f:
 @app.route("/")
 def home():
     return code
+
+@app.route("/dashbord")
+def dore():
+    return s
 
 @app.route("/more")
 def more():
