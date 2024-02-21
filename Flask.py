@@ -21,27 +21,5 @@ def chat():
         return redirect(url_for('home'))
 
 
-@socketio.on('send_message')
-def handle(data):
-    app.logger.info("{} has sent message to the room {}: {}".format(data['username'],
-                                                                    data['room'],
-                                                                    data['message']))
-    socketio.emit('receive_message', data, room=data['room'])
-
-
-@socketio.on('join_room')
-def handle_join_room(data):
-    app.logger.info("{} has joined the room {}".format(data['username'], data['room']))
-    join_room(data['room'])
-    socketio.emit('join_room_announcement', data, room=data['room'])
-
-
-@socketio.on('leave_room')
-def handle_leave_room(data):
-    app.logger.info("{} has left the room {}".format(data['username'], data['room']))
-    leave_room(data['room'])
-    socketio.emit('leave_room_announcement', data, room=data['room'])
-
-
 if __name__ == '__main__':
     socketio.run(app, debug=True)w
