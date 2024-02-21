@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,4 +14,15 @@
     <button type="submit">Send</button>
 </form>
 </body>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+<script>
+    const socket = io.connect("http://127.0.0.1:5000");
+
+     socket.on('connect', function () {
+         socket.emit('join_room', {
+            username: "{{ username }}",
+            room: "{{ room }}"
+         });
+</script>
 </html>
+
