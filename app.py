@@ -17,7 +17,7 @@ def home():
     return render_template("index.html")
 
 
-@app.route('/AI', methods=['GET', 'POST']) 
+@app.route('/Manav.com/AI', methods=['GET', 'POST']) 
 def says():
     if request.method == 'POST': 
     
