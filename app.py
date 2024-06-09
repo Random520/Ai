@@ -23,8 +23,8 @@ def says():
     
         word = request.form.get('say') 
         return render_template("ex.html", word=word )
-        time.sleep(5) 
-        speak("Hello")
+        time.sleep(2) 
+        speak("word")
     else: 
          
      return render_template("index.html") 
